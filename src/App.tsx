@@ -60,13 +60,9 @@ const App: React.FC = () => {
                     //err = true;
                     await USDT.methods.approve(process.env.REACT_APP_VFX_CONTRACT_ADDRESS, web3.utils.toWei(value, 'ether')).send({from: accounts[0]});
                     setMessage('You have been approved USDT! #1');
-                    await VFX.methods.fundUSDT(web3.utils.toWei(value, 'ether')).send({from: accounts[0]}).on('status', (hash:any)=>{
+                    await VFX.methods.fundUSDT(web3.utils.toWei(value, 'ether')).send({from: accounts[0]}).on('transactionHash', (hash:any)=>{
                       //txhash=0;
-                      console.log(hash);
                       setTxhash(hash);
-                    }).on('status',(status:any)=>{
-                      console.log(status)
-                      setMessage(status);
                     });
                     const total = await USDT.methods.balanceOf(process.env.REACT_APP_VFX_CONTRACT_ADDRESS).call();
                     const usdt_mnt = await USDT.methods.balanceOf(accounts[0]).call();
@@ -122,11 +118,10 @@ const App: React.FC = () => {
                 </form>
                 <div className="text-3xl front-bold text-red-500 text-center"> {message} </div>
                 <div className="mt-16">
-                  
                 <p className="ml-3">You have <span className="front-bold text-green-400 mt-2">{web3.utils.fromWei(usdt_mnt, 'ether')} </span>USDT</p>
                 <p className="ml-3">You have VFX Token <span className="front-bold text-green-400 mt-2">{vfx_mnt} </span>Tokens</p>
                 <p className="ml-3">You are buying <span className="front-bold text-green-400 mt-2">{bvalue}</span> Tokens</p>
-                <p className="ml-3">VFX total brough <span className="front-bold text-green-400 mt-2">{web3.utils.fromWei(total, 'ether')}</span> Tokens</p>
+                <p className="ml-3">VFX total bought <span className="front-bold text-green-400 mt-2">{web3.utils.fromWei(total, 'ether')}</span> Tokens</p>
                 <p className="ml-3">Your hash is <span className="front-bold text-green-400 mt-2">{txhash}</span></p>
                 </div>
             </div>
