@@ -1,0 +1,141 @@
+.buytoken-wrapper-position {
+  justify-self: end;
+}
+.buytokenwrapper {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.19);
+  border-radius: $borderRadius;
+  margin: 129px 84px 186px 0;
+  width: 454px;
+  
+  color: black;
+  padding: 31px 25px 26px;
+
+
+  .normal-font-size {
+    font-size: $normalFontSize;
+  }
+
+  
+  .number-primary-color {
+    font-family: $secondFontFamily;
+    font-size: $titleFontSize;
+    color: $buyTokenBoxTextSoftColor;
+    &.bolder {
+      color: $buyTokenBoxTextBoldColor;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+
+  .title {
+    font-family: $secondFontFamily;
+    font-size: $titleFontSize;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 25px;
+  }
+  .title-small {
+    color: #999999;
+    font-size: 12px;
+
+    &.black {
+      color: black;
+    }
+  }
+  small {
+    font-size: $smallFontSize;
+    line-height: 11px;
+  }
+  .soft {
+    opacity: 48%;
+  }
+
+  .percent-box {
+    &:hover {
+      background: $primaryColor;
+      color: white;
+    }
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    border-radius: $borderRadius;
+    font-family: $secondFontFamily;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: $primaryColor;
+    padding: 10px 18px;
+    width: calc(25% - 8px);
+    margin-top: 15px;
+  }
+  
+  .gray-box {
+    padding: 11px 16px 11px 13px;
+    border-radius: $borderRadius;
+    background-color: #EEEEEE;
+    margin: 18px 0 15px;
+  }
+
+  .line {
+    margin: 48px 0 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .gray-text {
+    color: #999999;
+  }
+  
+  .small-row-gap {
+    margin-bottom: 3px;
+  }
+  .medium-row-gap {
+    margin-bottom: 15px;
+  }
+  .large-row-gap {
+    margin-bottom: 35px;
+  }
+}
+
+@media only screen and (max-width: 992px) { 
+  .buytoken-wrapper-position {
+    justify-self: center;
+    width: 100%;
+  }
+  .buytokenwrapper {
+    margin: 30px 17px 189px ;
+    width: calc(100% - 34px);
+    padding: 27px 21px 36px;
+    justify-self: center;
+
+    .gray-box {
+      margin: 15px 0;
+    }
+    .percent-box { 
+      margin-top: 12px;
+    }
+    .line {
+      margin: 40px 0 12px;
+    }
+    .medium-row-gap {
+      margin-bottom: 25px;
+    }
+    .large-row-gap {
+      margin-bottom: 29px;
+    }
+  }
+  .-m-mobile-button {
+    width: calc(100% - 78px);
+    margin: 0 auto;
+    .primary-button {
+      margin-bottom: 12px;
+    }
+    .flex {
+      margin-bottom: 35px;
+    }
+    .gray-text {
+      font-size: 10px;
+    }
+  }
+  
+}

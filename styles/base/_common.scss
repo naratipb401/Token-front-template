@@ -1,0 +1,26 @@
+.container {
+  background-color: $primaryBackgroundColor;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.circle {
+  background-color: #FFFFFF;
+  opacity: 0.2;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+
+  &.small {
+    width: 150px;
+    height: 150px;
+    top: 105px;
+    right: 16px;
+  }
+  &.large {
+    width: 570px;
+    height: 570px;
+    top:  723px;
+    left: -188px;
+  }
+}
