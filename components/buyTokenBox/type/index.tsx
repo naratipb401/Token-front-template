@@ -7,6 +7,7 @@ interface buyTokenBoxProps {
   vfx: number
   usdtPerVFX: number
   vfxTotal: number
+  summited: (e:number)=>void
 }
 
 export default buyTokenBoxProps

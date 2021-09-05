@@ -20,7 +20,7 @@ class MyDocument extends Document {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin
+            
           ></link>
           <link
             href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap"
@@ -30,7 +30,7 @@ class MyDocument extends Document {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin
+            
           ></link>
           <link
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
