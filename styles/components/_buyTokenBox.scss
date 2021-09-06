@@ -12,6 +12,29 @@
   padding: 31px 25px 26px;
 
 
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  #usdt {
+    text-align: right;
+    border: none;
+    background: none;
+    position: relative;
+    z-index: 100;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+  
   .normal-font-size {
     font-size: $normalFontSize;
   }
