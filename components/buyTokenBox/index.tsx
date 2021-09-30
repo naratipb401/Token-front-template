@@ -1,11 +1,15 @@
 import Image from 'next/image'
 import buyTokenBoxProps from './type'
 import { useState, useEffect } from 'react'
-
+import detectEthereumProvider from '@metamask/detect-provider';
 const buyTokenBox = (props: buyTokenBoxProps) => {
   const [usdtvalue, setusdtvalue] = useState(0)
   const [vfxvalue, setvfxvalue] = useState(0)
-  const onclickHandlere = (e: any) => {
+  const [isapproveOnmobile,setapproveOnmobile]=useState(false);
+  const onmobileSubmitted = (e:any) =>{
+    setapproveOnmobile(true)
+  }
+  const onclickHandlere = (e:any) => {
     //console.log(e.target.id);
     const selected_percent = e.target.id
     switch (selected_percent) {
@@ -29,8 +33,21 @@ const buyTokenBox = (props: buyTokenBoxProps) => {
         break
     }
   }
+  
+  useEffect(() => {
+    const init = async ()=>{
+      const provider = await detectEthereumProvider();
 
-  useEffect(() => {}, [usdtvalue])
+if (provider) {
+  
+} else {
+  console.log('Please install MetaMask!');
+  alert("Not Detected!")
+}
+    }
+    init();
+
+  }, []);
 
   return (
     <div className="buytoken-wrapper-position">

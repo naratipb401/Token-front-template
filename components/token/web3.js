@@ -5,23 +5,26 @@ function handleAccountsChanged(accounts) {
   .request({ method: 'eth_accounts' })
   .then(handleAccountsChanged)
   .catch((err) => {
-    // Some unexpected error.
-    // For backwards compatibility reasons, if no accounts are available,
-    // eth_accounts will return an empty array.
     console.error(err);
   });
     if (accounts.length === 0) {
-      // MetaMask is locked or the user has not connected any accounts
       console.log('Please connect to MetaMask.');
       window.location.reload();
     } else if (accounts[0] !== currentAccount) {
       window.location.reload();
       currentAccount = accounts[0];
       console.log(currentAccount);
-      //window.location.reload();
-      // Do any other work!
     }
     //window.location.reload();
+  }
+  function handleEthereum() {
+    const { ethereum } = window;
+    if (ethereum && ethereum.isMetaMask) {
+      console.log('Ethereum successfully detected!');
+      // Access the decentralized web!
+    } else {
+      console.log('KKKKKKKK');
+    }
   }
 var web3 = new Web3();// = new Web3(window.web3.currentProvider);
 try{
@@ -29,7 +32,7 @@ if (window.ethereum) {
     try{
     web3 = new Web3(window.ethereum);
        //window.ethereum.enable().then(function() {
-        
+        handleEthereum();
         window.ethereum.request({ method: 'eth_requestAccounts' }).then(function(){
         window.ethereum.on('accountsChanged', handleAccountsChanged);
         currentAccount = web3.eth.getAccounts();

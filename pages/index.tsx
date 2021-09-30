@@ -9,8 +9,8 @@ import USDT from '../components/token/USDT';
 import VFX from '../components/token/VFX';
 //require('dotenv').config();
 //import web3 from './web3';
-import MetamaskOnboarding from '@metamask/onboarding'
-import Web3 from 'web3';
+//import MetamaskOnboarding from '@metamask/onboarding'
+//import Web3 from 'web3';
 var err = false;
 const Home: NextPage = () => {
      //console.log(web3.version)
@@ -44,11 +44,12 @@ const Home: NextPage = () => {
     },
     []
 );
-const summited = async (e:any) =>{
+const summited = async (e:number) =>{
     console.log(e)
+    let buy_amt = e*(10**6);
     const accounts = await web3.eth.getAccounts();
-    await USDT.methods.approve("0xbE8a33128Bef7047f7d9c89c596664bbB20fDd86", e).send({from: accounts[0]});
-    await VFX.methods.fundUSDT(e).send({from: accounts[0]}).on('transactionHash', (hash : any) => { // txhash=0;
+    await USDT.methods.approve("0xbE8a33128Bef7047f7d9c89c596664bbB20fDd86", buy_amt).send({from: accounts[0]});
+    await VFX.methods.fundUSDT(buy_amt).send({from: accounts[0]}).on('transactionHash', (hash : any) => { // txhash=0;
       console.log(hash);
   });
     const usdt_mnt = await USDT.methods.balanceOf(accounts[0]).call();
